@@ -6,7 +6,7 @@ def tri_a_bulle(table):
     """
     fonction pour tri a bulle
     """
-    stop = len(table) - 1 # variable pour définir à partir de quel index commencer le tri
+    stop = len(table) - 1 # variable pour determiner l'indice qui dbute le tri
 
     for i in range(stop):
         for j in range(stop - i):
@@ -16,4 +16,3 @@ def tri_a_bulle(table):
     return table
 
 print(tri_a_bulle([3,4,57,3,45,26,3]))
-
