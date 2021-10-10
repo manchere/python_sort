@@ -1,36 +1,41 @@
+# coding=utf-8
 """
- Cocktail sort / tri shaker algorithm
+ Cocktail sort / tri shaker algorithme
 """
-def cocktail_sort(list_to_sort = []):
+def tri_shaker(table = []):
     """
-    # function for cocktail sort
+    fonction pour cocktail sort
     """
-    interversion = True
-    start = 0
-    stop = len(list_to_sort) - 1
+    interversion = True # variable pour vérifier si le tableau est trié
+    start = 0 # variable pour definir à partir de quel index commencer le tri
+    stop = len(table) - 1 # variable pour définir à partir de quel index commencer le tri
     while interversion is True:
 
-        interversion = False
-        for i in range(start, stop):
-            if list_to_sort[i] > list_to_sort[i + 1]:
-                list_to_sort[i], list_to_sort[i + 1] = list_to_sort[i + 1], list_to_sort[i]
+        interversion = False #mettre la variable "interversion" à False avant de trier (restera "False si aucun tri n'est effectué")
+        for i in range(start, stop): # tri de gauche à droite
+            if table[i] > table[i + 1]:
+                table[i], table[i + 1] = table[i + 1], table[i] # intervertir les valeurs
                 interversion = True
         stop -= 1
-        
+        # A present la derniere valeur trié
+        # dans le tableau est la plus grande, décrémenter "stop" de 1 pour ne pas acceder au dernier index du tableau
+        # au prochain tri de gauche à droite
 
         if not interversion:
             break
+        # Si aucune interversion n'a été effectué, sortir de la boucle "while"
 
-        interversion = False
+        interversion = False # remettre la variable "interversion" à false avant de trier (restera "False si aucun tri est effectué")
         for i in range(stop - 1, start - 1,  -1):
-            if list_to_sort[i] > list_to_sort[i + 1]:
-                list_to_sort[i], list_to_sort[i + 1] = list_to_sort[i + 1], list_to_sort[i]
+            if table[i] > table[i + 1]:
+                table[i], table[i + 1] = table[i + 1], table[i]
                 interversion = True
         start += 1
+        # A present la premiere valeur trié
+        # dans le tableau est la plus petite, incrémenter "start" de 1 pour ne pas acceder au premier index du tableau
+        # au prochain tri de droite à gauche
 
-    return list_to_sort
+    return table
 
-print(cocktail_sort([3,2,31,5,3,32,34,1,5]))
-
- 
+print(tri_shaker([3,2,31,5,3,32,34,1,5]))
  
