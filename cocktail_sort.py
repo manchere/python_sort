@@ -4,21 +4,21 @@
 """
 def tri_shaker(table = []):
     """
-    fonction pour cocktail sort
+    fonction pour tri shaker
     """
     interversion = True # variable pour vérifier si le tableau est trié
-    start = 0 # variable pour definir à partir de quel index commencer le tri
-    stop = len(table) - 1 # variable pour définir à partir de quel index commencer le tri
+    start = 0 # variable pour déterminer le premier indice à partir duquel le tri doit commencer
+    stop = len(table) - 1 # variable pour déterminer le dernier indice de l'élement à trier
     while interversion is True:
 
-        interversion = False #mettre la variable "interversion" à False avant de trier (restera "False si aucun tri n'est effectué")
+        interversion = False # mettre la variable "interversion" à False avant de trier (restera "False si aucun tri n'est effectué")
         for i in range(start, stop): # tri de gauche à droite
             if table[i] > table[i + 1]:
                 table[i], table[i + 1] = table[i + 1], table[i] # intervertir les valeurs
                 interversion = True
         stop -= 1
-        # A present la derniere valeur trié
-        # dans le tableau est la plus grande, décrémenter "stop" de 1 pour ne pas acceder au dernier index du tableau
+        # A présent la dernière valeur trié
+        # dans le tableau est la plus grande, décrémenter "stop" de 1 pour ne pas accéder au dernier indice du tableau
         # au prochain tri de gauche à droite
 
         if not interversion:
@@ -31,8 +31,8 @@ def tri_shaker(table = []):
                 table[i], table[i + 1] = table[i + 1], table[i]
                 interversion = True
         start += 1
-        # A present la premiere valeur trié
-        # dans le tableau est la plus petite, incrémenter "start" de 1 pour ne pas acceder au premier index du tableau
+        # A présent la premiere valeur trié
+        # dans le tableau est la plus petite, incrémenter "start" de 1 pour ne pas acceder au premier indice du tableau
         # au prochain tri de droite à gauche
 
     return table
